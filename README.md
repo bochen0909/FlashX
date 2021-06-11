@@ -1,3 +1,15 @@
+Here is a fork that works on centos 8
+
+Install libraries
+
+    yum install -y cmake3 hwloc-devel.x86_64 numactl-devel.x86_64 libaio-devel.x86_64  numactl.x86_64 openblas-devel.x86_64 openblas.x86_64 
+    mkdir build && cd build && cmake3 -DBLAS_LIBRARIES=OpenBLAS .. && make 
+    
+
+
+++++++ Original Readme ++++++
+==========================================================================
+
 This repo contains the core of the FlashX project, which provides big data analytics tools
 that perform data analytics in the form of graphs and matrices. As such, FlashX covers
 a large range of data analysis tasks. All tools in FlashX utilize solid-state drives (SSDs) to
