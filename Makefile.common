@@ -52,7 +52,8 @@ ifeq ($(USE_OPENBLAS), 1)
 	CFLAGS += -DUSE_OPENBLAS
 	CXXFLAGS += -DUSE_OPENBLAS
 else
-	LDFLAGS += -lcblas
+	LDFLAGS += -lsatlas
+	LDFLAGS += -L/usr/lib64/atlas/
 endif
 
 CLANG_FLAGS = -Wno-attributes

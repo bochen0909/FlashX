@@ -16,6 +16,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 #include "log.h"
 
 #include "bulk_operate.h"
@@ -1010,8 +1011,9 @@ void scalar_type::init_ops()
 	set_basic_uops_impl(long double);
 	set_basic_uops_impl(bool);
 	set_basic_uops_impl(unsigned short);
-	set_basic_uops_impl(unsigned int);
-	set_basic_uops_impl(unsigned long);
+	set_basic_uops_impl(long long);
+	//set_basic_uops_impl(unsigned int);
+	//set_basic_uops_impl(unsigned long);
 	for (size_t i = 0; i < basic_uops_impls.size(); i++)
 		if (basic_uops_impls[i] == NULL)
 			throw unsupported_exception("find an unsupported type");
