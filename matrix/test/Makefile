@@ -17,9 +17,9 @@
 
 include ../../Makefile.common
 
-CXXFLAGS += -I../../libsafs -I.. -I../eigensolver -I../libmatrix-algs
+CXXFLAGS += -I../../libsafs -I.. -I../eigensolver -I../libmatrix-algs -I/usr/include/openblas
 LDFLAGS := ../libmatrix-algs/libFMatrix-algs.a -L.. -lFMatrix -L../../libsafs -lsafs $(LDFLAGS)
-LDFLAGS += -lz -lcblas #-lprofiler
+LDFLAGS += -lz -lopenblas #-lprofiler
 
 all: test-2d_multiply test-dense_matrix test-block_mv test-mem_vector	\
 	test-sort test-dgemm test-algs
@@ -102,10 +102,10 @@ test-mkl_dgemm: test-mkl_dgemm.o
 	$(CXX) -o test-mkl_dgemm test-mkl_dgemm.o -L/home/zhengda/intel/mkl/lib/intel64/ -lmkl_intel_ilp64 -lmkl_gnu_thread -lmkl_core -lm -fopenmp -lm
 
 test-dgemm.o: test-dgemm.cpp
-	$(CXX) -O3 -c test-dgemm.cpp -I. -fopenmp
+	$(CXX) -O3 -c test-dgemm.cpp -I. -fopenmp -I/usr/include/openblas
 
 test-dgemm: test-dgemm.o
-	$(CXX) -o test-dgemm test-dgemm.o -lcblas -lm -fopenmp -lm
+	$(CXX) -o test-dgemm test-dgemm.o -lopenblas -lm -fopenmp -lm
 
 test-oblas_dgemm.o: test-dgemm.cpp
 	$(CXX) -O3 -c test-dgemm.cpp -o test-oblas_dgemm.o -I. -I/home/zhengda/local/include -fopenmp

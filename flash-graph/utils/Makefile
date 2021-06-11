@@ -19,7 +19,7 @@ include ../../Makefile.common
 
 CXXFLAGS += -I../../libsafs -I.. -I../../matrix
 LDFLAGS := -L../ -lgraph -L../../matrix -lFMatrix -L../../libsafs -lsafs $(LDFLAGS)
-LDFLAGS += -lz -lcblas #-lprofiler
+LDFLAGS += -lz -lopenblas #-lprofiler
 
 all: el2fg fg2fm fg2crs fg_lcc csr2fg sbm
 

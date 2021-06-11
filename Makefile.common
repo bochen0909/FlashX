@@ -24,7 +24,7 @@ CXX = g++
 #RELEASE=1
 USE_NUMA=1
 USE_LIBAIO=1
-#USE_OPENBLAS=1
+USE_OPENBLAS=1
 HWLOC=1
 CFLAGS = -g -O3 -DSTATISTICS -DPROFILER
 ifdef MEMCHECK
@@ -51,6 +51,7 @@ ifeq ($(USE_OPENBLAS), 1)
 	LDFLAGS += -lopenblas
 	CFLAGS += -DUSE_OPENBLAS
 	CXXFLAGS += -DUSE_OPENBLAS
+	CXXFLAGS += -I/usr/include/openblas
 else
 	LDFLAGS += -lsatlas
 	LDFLAGS += -L/usr/lib64/atlas/

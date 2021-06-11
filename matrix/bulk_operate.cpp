@@ -85,7 +85,8 @@ class basic_uops_impl: public basic_uops
 			return "abs";
 		}
 		OutType operator()(const InType &e) const {
-			return (OutType) std::abs(e);
+			//return (OutType) std::abs(e);
+			return (OutType) ( e>0? e:-e);
 		}
 	};
 
@@ -1011,9 +1012,8 @@ void scalar_type::init_ops()
 	set_basic_uops_impl(long double);
 	set_basic_uops_impl(bool);
 	set_basic_uops_impl(unsigned short);
-	set_basic_uops_impl(long long);
-	//set_basic_uops_impl(unsigned int);
-	//set_basic_uops_impl(unsigned long);
+	set_basic_uops_impl(unsigned int);
+	set_basic_uops_impl(unsigned long);
 	for (size_t i = 0; i < basic_uops_impls.size(); i++)
 		if (basic_uops_impls[i] == NULL)
 			throw unsupported_exception("find an unsupported type");

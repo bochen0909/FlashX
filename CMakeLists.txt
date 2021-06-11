@@ -1,6 +1,6 @@
-cmake_minimum_required (VERSION 2.6)
+cmake_minimum_required (VERSION 3.0)
 
-project (FlashGraph)
+project (FlashGraph VERSION 0.3.0 )
 
 include(CheckCCompilerFlag)
 
@@ -21,6 +21,8 @@ endif()
 find_package(Boost REQUIRED)
 find_package(Threads REQUIRED)
 find_package(LibRt REQUIRED)
+
+include_directories("/usr/include/openblas")
 
 # configure a header file to pass some of the CMake settings
 # to the source code

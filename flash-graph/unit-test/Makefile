@@ -17,7 +17,7 @@
 
 include ../../Makefile.common
 
-LDFLAGS := -L.. -lgraph -L../../matrix -lFMatrix -lcblas -L../../libsafs -lsafs -lrt -lz $(LDFLAGS)
+LDFLAGS := -L.. -lgraph -L../../matrix -lFMatrix -lopenblas -L../../libsafs -lsafs -lrt -lz $(LDFLAGS)
 CXXFLAGS = -I.. -I../../libsafs -I../../matrix -g -std=c++0x
 
 SOURCE := $(wildcard *.c) $(wildcard *.cpp)
